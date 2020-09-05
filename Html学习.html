@@ -1,0 +1,582 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Title of the document</title>
+    <link rel="stylesheet" type="text/css" href="mystyle.css">  <!--引用外部css-->
+    <style>
+        .cities {
+            background-color: black;
+            color: white;
+            margin: 20px;
+            padding: 20px;
+        }
+
+        #header {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 5px;
+        }
+
+        #nav {
+            line-height: 30px;
+            background-color: #eeeeee;
+            height: 300px;
+            width: 100px;
+            float: left;
+            padding: 5px;
+        }
+
+        #section {
+            width: 350px;
+            float: left;
+            padding: 10px;
+        }
+
+        #footer {
+            background-color: black;
+            color: white;
+            clear: both;
+            text-align: center;
+            padding: 5px;
+        }
+
+        .city {
+            float: left;
+            margin: 5px;
+            padding: 15px;
+            width: 300px;
+            height: 300px;
+            border: 1px solid black;
+        }
+    </style>
+    <style data-cbh-dummy="dummy" type="text/css">
+        *[data-cbh-blocked] {
+            display: none !important;
+        }
+    </style>
+    <style data-cbh-dummy="dummy" type="text/css"></style>
+    <style class="blockbyte-bs-style" data-name="content">
+        body > div#blockbyte-bs-indicator > div {
+            opacity: 0;
+            pointer-events: none
+        }
+
+        body > iframe#blockbyte-bs-sidebar.blockbyte-bs-visible, body > iframe#blockbyte-bs-overlay.blockbyte-bs-visible {
+            opacity: 1;
+            pointer-events: auto
+        }
+
+        body.blockbyte-bs-noscroll {
+            overflow: hidden !important
+        }
+
+        body > div#blockbyte-bs-indicator > div {
+            position: absolute;
+            transform: translate3d(-24px, 0, 0);
+            top: 0;
+            left: 0;
+            width: 24px !important;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            border-radius: 0 10px 10px 0;
+            transition: opacity 0.3s, transform 0.3s;
+            z-index: 2
+        }
+
+            body > div#blockbyte-bs-indicator > div > span {
+                -webkit-mask: no-repeat center/24px;
+                -webkit-mask-image: url(chrome-extension://lmjefbghkfeppnpofmbfmhgodpclipbl/img/icon-bookmark.svg);
+                background-color: #ffffff;
+                position: absolute;
+                display: block;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%
+            }
+
+        body > div#blockbyte-bs-indicator[data-pos='right'] {
+            left: auto;
+            right: 0
+        }
+
+            body > div#blockbyte-bs-indicator[data-pos='right'] > div {
+                transform: translate3d(24px, 0, 0);
+                left: auto;
+                right: 0;
+                border-radius: 10px 0 0 10px
+            }
+
+        body > div#blockbyte-bs-indicator.blockbyte-bs-fullHeight > div {
+            border-radius: 0
+        }
+
+        body > div#blockbyte-bs-indicator.blockbyte-bs-hover > div {
+            transform: translate3d(0, 0, 0);
+            opacity: 1
+        }
+
+        body > div#blockbyte-bs-indicator[data-pos='left'].blockbyte-bs-has-lsb {
+            height: 100% !important;
+            top: 0 !important
+        }
+
+            body > div#blockbyte-bs-indicator[data-pos='left'].blockbyte-bs-has-lsb > div {
+                background: transparent
+            }
+
+                body > div#blockbyte-bs-indicator[data-pos='left'].blockbyte-bs-has-lsb > div > span {
+                    -webkit-mask-position-y: 20px
+                }
+
+        body > iframe#blockbyte-bs-sidebar {
+            width: 600px;
+            max-width: none;
+            height: 0;
+            z-index: 2147483646;
+            background-color: rgba(255,255,255,0.8) !important;
+            speak: none;
+            border: none;
+            display: block !important;
+            transform: translate3d(-600px, 0, 0);
+            transition: width 0s 0.3s, height 0s 0.3s, opacity 0.3s, transform 0.3s
+        }
+
+            body > iframe#blockbyte-bs-sidebar[data-pos='right'] {
+                left: auto;
+                right: 0;
+                transform: translate3d(600px, 0, 0)
+            }
+
+            body > iframe#blockbyte-bs-sidebar.blockbyte-bs-visible {
+                width: calc(100% + 600px);
+                height: 100%;
+                transform: translate3d(0, 0, 0);
+                transition: opacity 0.3s, transform 0.3s
+            }
+
+            body > iframe#blockbyte-bs-sidebar.blockbyte-bs-hideMask {
+                background: none !important
+            }
+
+                body > iframe#blockbyte-bs-sidebar.blockbyte-bs-hideMask:not(.blockbyte-bs-hover) {
+                    width: calc(600px + 50px)
+                }
+
+        body > iframe#blockbyte-bs-overlay {
+            width: 100%;
+            max-width: none;
+            height: 100%;
+            z-index: 2147483647;
+            border: none;
+            speak: none;
+            background: rgba(0,0,0,0.5) !important;
+            transition: opacity 0.3s
+        }
+    </style>
+</head>
+<body bgcolor="yellow" style="user-select: text;">
+    <!--<body bgcolor="#000000">
+    <body bgcolor="rgb(0,0,0)">
+    <body bgcolor="black">-->
+    <!--<body background="clouds.gif">
+    <body background="http://www.w3school.com.cn/clouds.gif">-->
+
+    <h1 align="center">This is a heading --h1</h1>
+    <h2>This is a heading --h2</h2>
+    <hr>  <!--水平线-->
+    <h3>This is a heading --h3</h3>
+
+    <p style="font-family:arial;color:red;font-size:20px;text-align:center;">我的第一个段落。font color size align</p>
+    <p style="background-color:green">This is<br>a para<br>graph with line breaks</p>
+
+    <!--链接-->
+    <a href="http://www.w3school.com.cn">This is a link --a href</a>
+
+    <br>
+    the following is img src width height
+    <br>
+    <img src="w3school.jpg" width="104" height="142">
+
+    <blockquote cite="http://www.worldwildlife.org/who/index.html">
+        <!--缩进-->
+        五十年来，WWF 一直致力于保护自然界的未来。
+        世界领先的环保组织，WWF 工作于 100 个国家，
+        并得到美国一百二十万会员及全球近五百万会员的支持。
+    </blockquote>
+
+    <!--缩略词-->
+    <p><abbr title="World Health Organization">WHO</abbr> 成立于 1948 年。</p>
+    <p><dfn title="World Health Organization">WHO</dfn> 成立于 1948 年。</p>
+    <p><dfn><abbr title="World Health Organization">WHO</abbr></dfn> 成立于 1948 年。</p>
+
+    <!--元素定义文档或文章的联系信息（作者/拥有者）。-->
+    <address>
+        Written by Donald Duck.<br>
+        Visit us at:<br>
+        Example.com<br>
+        Box 564, Disneyland<br>
+        USA
+    </address>
+
+    <!--搭配组合-->
+    <code>
+        <pre>        var person = {
+            firstName:"Bill",
+            lastName:"Gates",
+            age:50,
+            eyeColor:"blue"
+        }
+        </pre>
+    </code>
+
+    <!--数学公式-->
+    <p><var>E = m c<sup>2</sup></var></p>
+
+
+    <!--跳转-->
+    a href
+    <br>
+    <a href="http://www.w3school.com.cn/html/html_links.asp#tips">有用的提示</a>
+    <a name="tips">基本的注意事项 - 有用的提示</a>
+    <br>
+    a href
+    <a href="#tips">有用的提示</a>
+
+    <!--大多数浏览器会把表头显示为粗体居中的文本：-->
+    <br>
+    table border tbody tr td
+
+    <br>
+    <table border="1">
+        <tbody>
+            <tr>
+                <th>Heading</th>
+                <th>Another Heading</th>
+            </tr>
+            <tr>
+                <td>row 1, cell 1</td>
+                <td>row 1, cell 2</td>
+            </tr>
+            <tr>
+                <td>row 2, cell 1</td>
+                <td>row 2, cell 2</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!--无序列表始于-->
+    <ul>
+        <li>Coffee ul li</li>
+        <li>Milk</li>
+    </ul>
+
+    <!--有序列表-->
+    <ol>
+        <li>Coffee ol li</li>
+        <li>Milk</li>
+    </ol>
+
+    <!--自定义列表-->
+    <dl>
+        <dt>Coffee</dt>
+        <dd>Black hot drink</dd>
+        <dt>Milk</dt>
+        <dd>White cold drink</dd>
+    </dl>
+
+
+    <!--内联元素在显示时通常不会以新行开始。
+    例子：<b>, <td>, <a>, <img>-->
+    <!--样式-->
+    <div class="cities">
+        <!--块级元素-->
+        <h2>
+            London div h2
+        </h2>
+        <p>
+            London is the capital city of England.
+            It is the most populous city in the United Kingdom,
+            with a metropolitan area of over 13 million inhabitants.
+        </p>
+    </div>
+
+
+    <h1>My <span class="red">Important span</span> Heading</h1>
+
+
+    <div id="header">
+        <h1>City Gallery h1</h1>
+    </div>
+
+    <div id="nav">
+        London<br>
+        Paris<br>
+        Tokyo<br>
+    </div>
+    <div id="section">
+        <h2>London</h2>
+        <p>
+            London is the capital city of England. It is the most populous city in the United Kingdom,
+            with a metropolitan area of over 13 million inhabitants.
+        </p>
+        <p>
+            Standing on the River Thames, London has been a major settlement for two millennia,
+            its history going back to its founding by the Romans, who named it Londinium.
+        </p>
+    </div>
+    <div id="footer">
+        Copyright ? W3Schools.com
+    </div>
+
+
+
+
+    <div class="city">
+        <h2>London</h2>
+        <p>London is the capital city of England.</p>
+        <p>
+            It is the most populous city in the United Kingdom,
+            with a metropolitan area of over 13 million inhabitants.
+        </p>
+    </div>
+    <div class="city">
+        <h2>Paris</h2>
+        <p>Paris is the capital and most populous city of France.</p>
+    </div>
+    <div class="city">
+        <h2>Tokyo</h2>
+        <p>
+            Tokyo is the capital of Japan, the center of the Greater Tokyo Area,
+            and the most populous metropolitan area in the world.
+        </p>
+    </div>
+    <hr><div></div>
+
+
+
+
+    <!--显示结果	描述	实体名称	实体编号
+    空格	&nbsp;	&#160;
+    <	小于号	&lt;	&#60;
+    >	大于号	&gt;	&#62;
+    &	和号	&amp;	&#38;
+    "	引号	&quot;	&#34;
+    '	撇号 	&apos; (IE不支持)	&#39;
+    ￠	分（cent）	&cent;	&#162;
+    £	镑（pound）	&pound;	&#163;
+    ¥	元（yen）	&yen;	&#165;
+    €	欧元（euro）	&euro;	&#8364;
+    §	小节	&sect;	&#167;
+    ©	版权（copyright）	&copy;	&#169;
+    ®	注册商标	&reg;	&#174;
+    ™	商标	&trade;	&#8482;
+    ×	乘号	&times;	&#215;
+    ÷	除号	&divide;	&#247;-->
+    <!--216 跨平台色-->
+    <!--Color HEX	Color RGB
+    #000000	rgb(0,0,0)
+    #FF0000	rgb(255,0,0)
+    #00FF00	rgb(0,255,0)
+    #0000FF	rgb(0,0,255)
+    #FFFF00	rgb(255,255,0)
+    #00FFFF	rgb(0,255,255)
+    #FF00FF	rgb(255,0,255)
+    #C0C0C0	rgb(192,192,192)
+    #FFFFFF	rgb(255,255,255)-->
+    <!--HTML5
+    <!DOCTYPE html>-->
+    <br>
+
+    <form action="action_page.php" method="GET">
+        <br>
+        form action method
+        <br>
+
+        <!--还有一个十post-->
+        First name:<br>
+        input text value
+        <input type="text" name="firstname" value="Mickey">
+        <br>
+        Last name:<br>
+        <input type="text" name="lastname" value="Mouse">
+        <br><br>
+        User password:<br>
+        input password
+        <input type="password" name="psw">
+        <br>
+        input number min max
+        <br>
+        <input type="number" name="quantity" min="1" max="5">
+        <br>
+        <input type="number" name="points" step="3">
+        <br>
+        input date min
+        <br>
+        <input type="date" name="bday" min="2000-01-02">
+        <br>
+        input color
+        <br>
+        <input type="color" name="favcolor">
+        <br>
+        input range min max
+        <br>
+        <input type="range" name="points" min="0" max="10">
+        <br>
+        <input type="week" name="week_year">
+        <br>
+        input time
+        <br>
+        <input type="time" name="usr_time">
+        <br>
+        input text value readonly
+        <input type="text" name="firstname" value="John" readonly="">
+        <br>
+        input value disabled
+        <input type="text" name="firstname" value="John" disabled="">
+        <br>
+        input text value size
+        <input type="text" name="firstname" value="John" size="40">
+        <br>
+        input text maxlength
+        <input type="text" name="firstname" maxlength="10">
+        <br>
+        First name:<input type="text" name="fname" autofocus="">
+        <br>
+        input submit submit
+        <input type="submit" value="Submit">
+        <br>
+        input radio value checked
+        <input type="radio" name="sex" value="male" checked="">Male
+        <br>
+        input radio name value
+        <input type="radio" name="sex" value="female">Female
+        <br>
+        <input type="checkbox" name="sss" value="123" checked="checked">
+        <br>
+        input reset
+        <input type="reset">
+        <br>
+        <input type="hidden">
+        <br>
+        input text patern title
+
+        <input type="text" name="country_code" pattern="[A-Za-z]{3}" title="Three letter country code">
+        <br>
+        input text placeholder
+        <input type="text" name="fname" placeholder="First name">
+        <br>
+        select option selected
+        <select>
+            <option>
+                Apples
+            </option>
+            <option selected="">
+                Bananas
+            </option>
+            <option>
+                Cherries
+            </option>
+        </select>
+        <br>
+        input list
+        <input list="cars">
+        <datalist id="cars">
+            <option value="BMW">
+            </option>
+            <option value="Ford">
+            </option>
+            <option value="Volvo">
+            </option>
+        </datalist>
+        <br>
+    </form>
+
+    <form action="/example/html5/demo_form.asp" method="get" autocomplete="on">
+        First name:<input type="text" name="fname"><br>
+        Last name: <input type="text" name="lname"><br>
+        E-mail: input email autocomplete
+        <input type="email" name="email" autocomplete="off"><br>
+        <input type="submit">
+    </form>
+
+
+
+    <form action="action_page.php" id="form1">
+        First name: <input type="text" name="fname"><br>
+        input submit value
+        <input type="submit" value="Submit">
+    </form>
+    Last name: <input type="text" name="lname" form="form1">
+
+    <!--number
+    disabled	规定输入字段应该被禁用。
+    max	规定输入字段的最大值。
+    maxlength	规定输入字段的最大字符数。
+    min	规定输入字段的最小值。
+    pattern	规定通过其检查输入值的正则表达式。
+    readonly	规定输入字段为只读（无法修改）。
+    required	规定输入字段是必需的（必需填写）。
+    size	规定输入字段的宽度（以字符计）。
+    step	规定输入字段的合法数字间隔。
+    value	规定输入字段的默认值。-->
+    <!--color
+    date
+    datetime
+    datetime-local
+    email
+    month
+    number
+    range
+    search
+    tel
+    time
+    url
+    week-->
+    <p>您可以通过 selected 属性预选择某些选项。</p>
+    <form action="/demo/demo_form.asp">
+        <select name="cars">
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="fiat" selected="">Fiat</option>
+            <option value="audi">Audi</option>
+        </select>
+        <br><br>
+        <input type="submit">
+    </form>
+
+
+    <textarea name="message" rows="10" cols="30">    The cat was playing in the garden.
+    </textarea>
+
+
+    <button type="button" onclick="alert('Hello World!')">Click Me!</button>
+
+    <form action="/demo/demo_form.asp">
+        input list
+        <input list="browsers" name="browser">
+        <datalist id="browsers">
+            <option value="Internet Explorer">
+            </option>
+            <option value="Firefox">
+            </option>
+            <option value="Chrome">
+            </option>
+            <option value="Opera">
+            </option>
+            <option value="Safari">
+            </option>
+        </datalist>
+        <input type="submit">
+    </form>
+
+    <div class="my_noscrollbar_jindu" style="display: block; width: 99.9701vw; background: red;"></div><iframe class="my_noscrollbar_scroll_bar_iframe" src="chrome-extension://jmopomhdbfldgbfmmkldkkeahhpbldal/pages/scroll_bar.html" frameborder="0" width="48" height="754" scrolling="hidden" style="transition: all 80ms ease 0s; transform: translate3d(0px, 0px, 0px);"></iframe>
+    <style>
+        ::-webkit-scrollbar {
+            width: 0px;
+            height: 2px
+        }
+    </style><iframe id="blockbyte-bs-sidebar" class="notranslate" aria-hidden="true" data-pos="left"></iframe><div id="blockbyte-bs-indicator" class="blockbyte-bs-fullHeight" style="width: 21px; height: 100%; top: 0%;"></div>
+</body>
+</html>
